@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "cwd": "${workspaceRoot}",
+        "executable": "./target/thumbv6m-none-eabi/debug/blinky", 
+        "name": "Debug Microcontroller (launch)",
+        "request": "launch",
+        "preLaunchTask": "rust: cargo build",
+        "type": "cortex-debug",
+        "runToMain": true,
+        "configFiles": [
+          "interface/stlink.cfg",
+        ],
+        "servertype": "openocd",
+        "openOCDLaunchCommands": [
+          "source [find target/stm32f0x.cfg]"
+        ],
+        "svdFile": "${workspaceRoot}/STM32F0x1.svd",
+      }
+    ]
+}
